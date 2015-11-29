@@ -2,6 +2,8 @@
 
 A simple tool to execute a psql query on multiple databases.
 
+You can find the latest version [here](https://github.com/foxylion/psql-multi/releases).
+
 ## Usage
 
 ```
