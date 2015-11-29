@@ -33,7 +33,7 @@ Usage: java -jar build/libs/psql-multi-all.jar [options]
        Default: false
     --user, -u
        User to authenticate
-       Default: postgre
+       Default: postgres
 ```
 
 ## Build
