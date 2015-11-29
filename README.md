@@ -1,6 +1,6 @@
-# psql-execute [![Build Status](https://travis-ci.org/foxylion/psql-multi.svg?branch=master)](https://travis-ci.org/foxylion/psql-multi)
+# psql-multi [![Build Status](https://travis-ci.org/foxylion/psql-multi.svg?branch=master)](https://travis-ci.org/foxylion/psql-multi)
 
-Simple tool to execute a query on multiple databases.
+A simple tool to execute a psql query on multiple databases.
 
 ## Usage
 
