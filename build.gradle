@@ -34,16 +34,4 @@ shadowJar {
 	exclude 'META-INF/*.RSA'
 }
 
-task dist {
-	inputs.file file('build/libs/psql-multi-all.jar')
-	outputs.file file('dist/psql-multi.jar')
-	copy {
-        from 'build/libs/'
-        into 'dist/'
-        include 'psql-multi-all.jar'
-        rename('psql-multi-all.jar', 'psql-multi.jar')
-    }
-}
-
-dist.dependsOn build
 build.dependsOn shadowJar

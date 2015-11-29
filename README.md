@@ -1,11 +1,11 @@
-# psql-execute
+# psql-execute [![Build Status](https://travis-ci.org/foxylion/psql-multi.svg?branch=master)](https://travis-ci.org/foxylion/psql-multi)
 
 Simple tool to execute a query on multiple databases.
 
 ## Usage
 
 ```
-Usage: java -jar build/libs/psql-execute-all.jar [options]
+Usage: java -jar build/libs/psql-multi-all.jar [options]
   Options:
     --exclude, -e
        Exclude databases with the following regex pattern
