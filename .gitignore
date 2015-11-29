@@ -1,0 +1,8 @@
+build/
+bin/
+dist/
+.gradle/
+.settings/
+.vagrant/
+.project
+.classpath
