@@ -3,6 +3,7 @@ plugins {
 	id 'application'
 	id 'com.github.johnrengelman.shadow' version '1.2.2'
 	id 'eclipse'
+	id 'idea'
 }
 
 sourceCompatibility = 1.8

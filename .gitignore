@@ -1,8 +1,10 @@
 build/
 bin/
 dist/
+.idea/
 .gradle/
 .settings/
 .vagrant/
 .project
 .classpath
+*.iml
