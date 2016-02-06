@@ -1,4 +1,8 @@
-# psql-multi [![Build Status](https://travis-ci.org/foxylion/psql-multi.svg?branch=master)](https://travis-ci.org/foxylion/psql-multi)
+# psql-multi - PostgreSQL queries on multiple databases
+
+[![Build Status](https://img.shields.io/travis/foxylion/psql-multi/master.svg?style=flat-square)](https://travis-ci.org/foxylion/psql-multi)
+[![Release](https://img.shields.io/github/release/foxylion/psql-multi.svg?style=flat-square)](https://github.com/foxylion/psql-multi/releases)
+![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square)
 
 A simple tool to execute a psql query on multiple databases.
 
