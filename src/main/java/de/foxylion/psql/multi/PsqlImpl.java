@@ -40,8 +40,8 @@ public class PsqlImpl implements Psql {
 					for (int c = 1; c <= result.getMetaData().getColumnCount(); c++) {
 						resultRow.put(result.getMetaData().getColumnName(c), result.getString(c));
 					}
+					resultList.add(resultRow);
 				}
-				resultList.add(resultRow);
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException("Failed to execute query: " + e.getMessage(), e);
