@@ -35,8 +35,8 @@ public class PsqlImpl implements Psql {
 
 		try (PreparedStatement stmt = connection.prepareCall(query)) {
 			try (ResultSet result = stmt.executeQuery()) {
-				Map<String, String> resultRow = new HashMap<>();
 				while (result.next()) {
+					Map<String, String> resultRow = new HashMap<>();
 					for (int c = 1; c <= result.getMetaData().getColumnCount(); c++) {
 						resultRow.put(result.getMetaData().getColumnName(c), result.getString(c));
 					}
