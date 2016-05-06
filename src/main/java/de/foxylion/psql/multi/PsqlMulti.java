@@ -44,7 +44,7 @@ public class PsqlMulti {
 	}
 
 	private List<String> collectDatabases() {
-		try (Psql psql = psqlFactory.getConnection(params.host, "/postgres", params.user, params.pass)) {
+		try (Psql psql = psqlFactory.getConnection(params.host, "postgres", params.user, params.pass)) {
 			return psql.fetch("SELECT datname FROM pg_database WHERE datistemplate = false;").stream()
 					.map((row) -> row.get("datname")) //
 					.collect(Collectors.toList());
