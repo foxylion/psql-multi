@@ -14,9 +14,10 @@ public class PsqlImpl implements Psql {
 
 	private final Connection connection;
 
-	public PsqlImpl(String host, String db, String user, String pass) {
+	public PsqlImpl(String host, String db, String user, String pass, boolean ssl, boolean noSslVerify) {
 		try {
-			connection = DriverManager.getConnection("jdbc:postgresql://" + host + "/" + db, user, pass);
+			String sslFactory = noSslVerify ? "&sslfactory=org.postgresql.ssl.NonValidatingFactory" : "";
+			connection = DriverManager.getConnection("jdbc:postgresql://" + host + "/" + db + "?ssl=" + ssl + sslFactory, user, pass);
 		} catch (SQLException e) {
 			throw new RuntimeException("Failed to open database connection: " + e.getMessage());
 		}

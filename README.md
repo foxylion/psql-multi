@@ -26,6 +26,9 @@ Usage: java -jar build/libs/psql-multi-all.jar [options]
        Default: 127.0.0.1:5432
     --include, -i
        Include databases with the following regex pattern
+    --no-ssl-verify
+       Verify SSL certificate
+       Default: true
     --pass, -p
        Password to authenticate
        Default: postgres
@@ -34,6 +37,9 @@ Usage: java -jar build/libs/psql-multi-all.jar [options]
     --results, -r
        When using a SELECT statement as the command results will be printed to
        console
+       Default: false
+    --ssl
+       Use a SSL connection to the database server
        Default: false
     --user, -u
        User to authenticate

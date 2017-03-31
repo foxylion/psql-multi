@@ -1,6 +1,7 @@
 package de.foxylion.psql.multi;
 
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyBoolean;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -19,7 +20,7 @@ public class PsqlMultiTest {
 		psqlMocks = new HashMap<>();
 		
 		psqlFactory = mock(PsqlFactory.class);
-		when(psqlFactory.getConnection(any(), any(), any(), any())).then((a) -> {
+		when(psqlFactory.getConnection(any(), any(), any(), any(), anyBoolean(), anyBoolean())).then((a) -> {
 			String dbName = a.getArgumentAt(2, String.class);
 			if(!psqlMocks.containsKey(dbName)) {
 				Psql psql = mock(Psql.class);

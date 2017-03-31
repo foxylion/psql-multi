@@ -31,4 +31,10 @@ class CommandlineParams {
 
 	@Parameter(names = { "--force", "-f" }, description = "Force to continue when executed query fails on a database")
 	boolean force = false;
+
+	@Parameter(names = { "--ssl" }, description = "Use a SSL connection to the database server")
+	boolean ssl = false;
+
+	@Parameter(names = { "--no-ssl-verify" }, description = "Verify SSL certificate")
+	boolean noSslVerify = false;
 }
