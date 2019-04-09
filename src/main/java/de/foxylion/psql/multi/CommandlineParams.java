@@ -29,6 +29,9 @@ class CommandlineParams {
 			"-r" }, description = "When using a SELECT statement as the command results will be printed to console")
 	boolean showResults = false;
 
+	@Parameter(names = { "--csv-results" }, description = "Return the results as csv")
+	String resultsToCsv = null;
+
 	@Parameter(names = { "--force", "-f" }, description = "Force to continue when executed query fails on a database")
 	boolean force = false;
 

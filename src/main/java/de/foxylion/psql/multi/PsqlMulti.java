@@ -1,5 +1,9 @@
 package de.foxylion.psql.multi;
 
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,26 +24,33 @@ public class PsqlMulti {
 		List<String> databases = collectDatabases();
 		databases = dbFilter.filter(databases, params.includePattern, params.excludePattern);
 
+		int counter = 1;
 		for (String db : databases) {
-			System.out.println("Executing on " + db + "...");
+			System.out.println("Executing on " + db + " (" + (counter++) + " of " + databases.size() + ")...");
 			runQuery(db);
 		}
 	}
 
 	private void runQuery(String db) {
 		try (Psql psql = psqlFactory.getConnection(params.host, db, params.user, params.pass, params.ssl, params.noSslVerify)) {
-			if (!params.showResults) {
-				psql.execute(params.command);
+			if (params.showResults) {
+				psql.fetch(params.command).forEach((row) -> System.out.println(Joiner.on(" | ").join(row.values())));
+				if (params.resultsToCsv != null) {
+					List<String> csvRows = psql.fetch(params.command)
+							.stream()
+							.map(row -> db + "\t" + Joiner.on("\t").join(row.values()))
+							.collect(Collectors.toList());
+					Files.write(Paths.get(params.resultsToCsv), csvRows, StandardCharsets.UTF_8, StandardOpenOption.APPEND, StandardOpenOption.CREATE);
+				}
 			} else {
-				psql.fetch(params.command).stream().forEach((row) -> {
-					System.out.println(Joiner.on(" | ").join(row.values()));
-				});
+				psql.execute(params.command);
 			}
 		} catch (Exception e) {
 			if (params.force) {
 				e.printStackTrace();
-			} else
-				throw e;
+			} else {
+                throw new RuntimeException(e);
+            }
 		}
 	}
 
